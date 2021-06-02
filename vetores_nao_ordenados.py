@@ -24,6 +24,26 @@ class VetorNaoOrdenado:
             self.valores[self.ultima_posicao] = valor
 
 
+    def pesquisar(self, valor):
+        for i in range(self.ultima_posicao + 1):
+            if valor == self.valores[i]:
+                return i #retorna qual posição o nr pesquisado está
+        return -1 #elemento não existe
+
+
+    def excluir(self, valor):
+        #encontra se o valor existe:
+        posicao = self.pesquisar(valor)
+        #apaga se encontrar:
+        if posicao == -1:
+            return -1 #não existe
+        else:
+            for i in range(posicao, self.ultima_posicao):
+                self.valores[i] = self.valores[i + 1]
+
+            self.ultima_posicao -= 1
+
+
 vetor = VetorNaoOrdenado(5)
 
 vetor.inserir(3)
@@ -31,5 +51,15 @@ vetor.inserir(5)
 vetor.inserir(8)
 vetor.inserir(1)
 vetor.inserir(7)
-vetor.inserir(9)
-vetor.inserir(3)
+vetor.imprime()
+
+print('-' * 30)
+
+vetor.excluir(5)
+vetor.imprime()
+#vetor.imprime()
+
+print('-' * 30)
+
+print(f'Na posição: {vetor.pesquisar(300)}') #retorna -1
+print(f'Na posição: {vetor.pesquisar(8)}') #retorna 2
