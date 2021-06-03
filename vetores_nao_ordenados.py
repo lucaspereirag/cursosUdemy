@@ -15,6 +15,10 @@ class VetorNaoOrdenado:
             for i in range(self.ultima_posicao + 1):
                 print(f'Na posição [{i}]', '=', self.valores[i])
 
+
+    def imprimir(self):
+        print(self.valores)
+
     #insere dados no vetor:
     def inserir(self, valor):
         if self.ultima_posicao == self.capacidade - 1:
@@ -63,3 +67,7 @@ print('-' * 30)
 
 print(f'Na posição: {vetor.pesquisar(300)}') #retorna -1
 print(f'Na posição: {vetor.pesquisar(8)}') #retorna 2
+
+print('-' * 30)
+vetor.imprimir()
+
