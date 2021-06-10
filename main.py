@@ -1,11 +1,17 @@
+i = 0
+lista = [40, 20, 50, 30, 10]
+n = 5
 
+def bubble_sort(lista):
+    elementos = len(lista)-1
+    ordenado = False
+    while not ordenado:
+        ordenado = True
+        for i in range(elementos):
+            if lista[i] > lista[i+1]:
+                lista[i], lista[i+1] = lista[i+1],lista[i]
+                ordenado = False
+                print(lista)
+    return lista
 
-vetor_a = [89, 20, 30, 130, 50, -6, 0, 80]
-
-
-
-
-
-print(f'O lucas é lindo demais.')
-
-
+bubble_sort(lista)

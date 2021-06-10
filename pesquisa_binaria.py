@@ -45,6 +45,38 @@ class VetoresOrdenados:
             elif i == self.ultima_posicao:
                 return -1
 
+    # O( log n )
+    def pesquisa_binaria(self, valor):
+        limite_inferior = 0 #é o está entre
+        limite_superior = self.ultima_posicao #está entre
+
+        #Verifica o intervalo
+        while True:
+            #encontra a posição:
+            posicao_atual = int((limite_inferior + limite_superior) / 2)
+
+            #Se na 1º tentativa, no meio do vetor:
+            if self.valores[posicao_atual] == valor:
+                return posicao_atual
+
+            #Se nao achou:
+            elif limite_inferior > limite_superior:
+                return -1
+
+            #Dividir elementos:
+            else:
+                #Limite inferior:
+                if self.valores[posicao_atual] < valor:
+                    limite_inferior = posicao_atual + 1
+                else:
+                    limite_superior = posicao_atual - 1
+
+
+
+
+
+
+
     def excluir(self, valor):
         #encontra se o valor existe:
         posicao = self.pesquisar(valor)
@@ -57,16 +89,19 @@ class VetoresOrdenados:
 
             self.ultima_posicao -= 1
 
-
 vetor = VetoresOrdenados(10)
 
-vetor.inserir(2)
+
+vetor.inserir(8)
+vetor.inserir(9)
 vetor.inserir(4)
-vetor.inserir(3)
-vetor.excluir(2)
+vetor.inserir(1)
+vetor.inserir(5)
+vetor.inserir(7)
+vetor.inserir(11)
+vetor.inserir(100)
+vetor.inserir(2)
+
 vetor.imprime()
 
-print(f'Posição: {vetor.pesquisar(5)}')
-print(f'Posição: {vetor.pesquisar(3)}')
-print(f'Posição: {vetor.pesquisar(4)}')
-print(f'Posição: {vetor.pesquisar(200)}')
+print(f'Posição da Pesquisa binária: {vetor.pesquisa_binaria(11)}')

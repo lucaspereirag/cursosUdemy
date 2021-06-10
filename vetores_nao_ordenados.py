@@ -28,7 +28,7 @@ class VetorNaoOrdenado:
             self.valores[self.ultima_posicao] = valor
 
 
-    def pesquisar(self, valor):
+    def pesquisa_linear(self, valor):
         for i in range(self.ultima_posicao + 1):
             if valor == self.valores[i]:
                 return i #retorna qual posição o nr pesquisado está
